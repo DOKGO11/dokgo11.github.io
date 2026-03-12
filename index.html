@@ -1,12 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rahman Ejaz personal website" />
+  <meta name="author" content="Rahman Ejaz" />
   <title>Rahman Ejaz</title>
+
+  <style>
+    :root {
+      --bg: #f6fbff;
+      --panel: #ffffff;
+      --text: #1d2736;
+      --muted: #607086;
+      --line: #d8e5f2;
+      --link: #2563eb;
+      --link-soft: #e8f1ff;
+      --accent: #3b82f6;
+      --accent-deep: #1e40af;
+      --accent-soft: #eff6ff;
+      --max-width: 860px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "IBM Plex Mono", monospace !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: linear-gradient(180deg, #f6fbff 0%, #ffffff 220px);
+      line-height: 1.68;
+      letter-spacing: 0.01em;
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      padding: 20px 0 10px;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+      text-transform: lowercase;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-deep);
+      text-decoration: none;
+    }
+
+    .rule {
+      border-top: 1px solid var(--line);
+      margin: 10px 0 0;
+    }
+
+    .hero {
+      padding: 20px 0 14px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    h1 {
+      font-size: 38px;
+      line-height: 1.14;
+      margin: 0 0 8px;
+      font-weight: 700;
+      color: #173b75;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: 23px;
+      margin: 0 0 14px;
+      font-weight: 700;
+      color: #173b75;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .links,
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .links {
+      margin-top: 14px;
+    }
+
+    .links a,
+    .pub-links a {
+      color: var(--accent-deep);
+      background: var(--link-soft);
+      border: 1px solid #d8e7ff;
+      border-radius: 999px;
+      padding: 3px 10px;
+      display: inline-block;
+    }
+
+    .links a:hover,
+    .pub-links a:hover {
+      text-decoration: none;
+      background: #dce9ff;
+    }
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--line);
+    }
+
+    .muted,
+    .entry-meta,
+    .note {
+      color: var(--muted);
+    }
+
+    .entry-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .entry {
+      display: grid;
+      gap: 5px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .entry-title,
+    .publication-title {
+      font-weight: 700;
+      color: #183d77;
+      letter-spacing: 0.005em;
+    }
+
+    .text-list,
+    .mini-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .publication-entry {
+      padding-bottom: 14px;
+      border-bottom: 1px solid #edf3f9;
+      display: grid;
+      gap: 6px;
+    }
+
+    .publication-entry:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 18px 0 36px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .name-accent {
+      font-weight: 700;
+    }
+
+    @media (max-width: 700px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-photo {
+        max-width: 180px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Rahman Ejaz</h1>
-  <p>PhD Candidate | Applied AI/ML Research </p>
+  <header class="nav">
+    <div class="container nav-inner">
+      <nav class="nav-links">
+        <a href="#publications">publications</a>
+        <a href="#talks">talks</a>
+        <a href="#extra">extra</a>
+      </nav>
+    </div>
+    <div class="container rule"></div>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="container hero-grid">
+        <div>
+          <h1><span class="name-accent">Rahman Ejaz</span></h1>
+          <p>
+            I am a PhD Candidate at the University of Rochester focusing on applied AI/ML for predictive modeling
+            and automated design of laser-driven nuclear fusion experiments, advised by <a href="https://www.hajim.rochester.edu/me/people/faculty/gopalaswamy-varchas/index.html">Varchas Gopalaswamy</a>,
+            <a href="https://chriskanan.com/">Christopher Kanan</a> and 
+            <a href="https://www.hajim.rochester.edu/me/people/faculty/betti_riccardo/index.html">Riccardo Betti</a>.
+            </p>
+            My work centers on extracting structure from noisy,
+            high-dimensional data for DNN–based prediction, using generative AI and Bayesian optimization to identify promising experimental candidates,
+            and developing decision-making algorithms for experimental design and control. The decision-making algorithms were deployed for optimizing in real-time laser-driven nuclear
+            fusion experiments, which has implications for accelerating scientific discovery on the path for realizing laser-driven nuclear fusion as a commercial energy source.
+          </p>
+          <p>
+            My interests broadly span in the domain of reinforcement learning, and on advancements for neural architectures that enables AGI, which is loosly 
+            defined as an AI that can figure things out in order to achieve a goal.
+          </p>
+            <strong>I am on the job market for late 2026/early 2027 for machine learning research roles involving data-driven knowledge discovery, forcasting, 
+            automated decision-making, and real-world deployment.</strong>
+          </p>
+          <div class="links">
+            <a href="https://scholar.google.com/citations?hl=en&user=jzNGdfAAAAAJ" target="_blank" rel="noreferrer">scholar</a>
+            <a href="mailto:rejaz@u.rochester.edu">email</a>
+            <a href="https://github.com/DOKGO11" target="_blank" rel="noreferrer">github</a>
+            <a href="rahman_ejaz_cv.pdf" target="_blank" rel="noreferrer">cv</a>
+          </div>
+        </div>
+
+        <div>
+          <img class="profile-photo" src="images/profile.jpg" alt="Rahman Ejaz profile photo" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <h2>Selected Publications</h2>
+        <p class="note">(A superscript * denotes equal contribution)</p>
+
+        <div class="entry-list">
+          <div class="publication-entry">
+            <div class="publication-title">Deep Learning-Based Predictive Modeling for Laser-Driven Inertial Confinement Fusion</div>
+            <div><strong>Rahman Ejaz</strong>, et al.</div>
+            <div class="entry-meta"><em>Physics of Plasmas</em> • 2024</div>
+            <div class="pub-links">
+              <a href="https://pubs.aip.org/aip/pop/article/31/5/052703/3293889" target="_blank" rel="noreferrer">paper</a>
+              <a href="#" target="_blank" rel="noreferrer">code</a>
+            </div>
+          </div>
+
+          <div class="publication-entry">
+            <div class="publication-title">Automated and Highly Parallelized Bayesian Optimization Scheme for Direct-Drive Fusion Experiments on OMEGA</div>
+            <div>Varchas Gopalaswamy, Aarne Lees, <strong>Rahman Ejaz</strong>, et al.</div>
+            <div class="entry-meta"><em>Physical Review Research</em> • 2025</div>
+            <div class="pub-links">
+              <a href="https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.7.013009" target="_blank" rel="noreferrer">paper</a>
+              <a href="#" target="_blank" rel="noreferrer">code</a>
+            </div>
+          </div>
+
+          <div class="publication-entry">
+            <div class="publication-title">Can KANs (re)discover predictive models for Direct-Drive Laser Fusion</div>
+            <div><strong>Rahman Ejaz</strong>, et al.</div>
+            <div class="entry-meta"><em>ML4PS Workshop at Neural Information Processing Systems (NeurIPS)</em> • 2024</div>
+            <div class="pub-links">
+              <a href="https://ml4physicalsciences.github.io/2024/files/NeurIPS_ML4PS_2024_112.pdf" target="_blank" rel="noreferrer">paper</a>
+              <a href="#" target="_blank" rel="noreferrer">code</a>
+            </div>
+          </div>
+
+          <div class="publication-entry">
+            <div class="publication-title">DiffICF: Diffusion-Driven Inverse Modeling for Laser Pulse Design in Inertial Confinement Fusion</div>
+            <div>Ricardo Luna Gutierrez*, Vineet Gundecha*, <strong>Rahman Ejaz*</strong>, et al.</div>
+            <div class="entry-meta"><em>ML4PS Workshop at Neural Information Processing Systems (NeurIPS)</em> • 2025</div>
+            <div class="pub-links">
+              <a href="https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_2.pdf" target="_blank" rel="noreferrer">paper</a>
+              <a href="#" target="_blank" rel="noreferrer">code</a>
+            </div>
+          </div>
+
+          <div class="publication-entry">
+            <div class="publication-title">OptICF: Sample-Efficient Optimization of Implosion Outcomes in Inertial Confinement Fusion</div>
+            <div>Ricardo Luna Gutierrez*, Vineet Gundecha*, <strong>Rahman Ejaz*</strong>, et al.</div>
+            <div class="entry-meta"><em>ML4PS Workshop at Neural Information Processing Systems (NeurIPS)</em> • 2025</div>
+            <div class="pub-links">
+              <a href="https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_12.pdf" target="_blank" rel="noreferrer">paper</a>
+              <a href="#" target="_blank" rel="noreferrer">code</a>
+            </div>
+          </div>
+
+          <div class="publication-entry">
+            <div class="publication-title">BayMOTH: Bayesian optiMizatiOn with meTa-lookahead -- a simple approacH</div>
+            <div><strong>Rahman Ejaz</strong>, et al.</div>
+            <div class="entry-meta">Manuscript under review</div>
+            <div class="pub-links">
+              <a href="#" target="_blank" rel="noreferrer">paper</a>
+              <a href="#" target="_blank" rel="noreferrer">code</a>
+            </div>
+          </div>
+
+          <div class="publication-entry">
+            <div class="publication-title">Inverse Modeling for Laser Pulse Shape Design in Inertial Confinement Fusion</div>
+            <div>Ricardo Luna Gutierrez, Vineet Gundecha, <strong>Rahman Ejaz</strong>, et al.</div>
+            <div class="entry-meta">Manuscript under review</div>
+            <div class="pub-links">
+              <a href="#" target="_blank" rel="noreferrer">paper</a>
+              <a href="#" target="_blank" rel="noreferrer">code</a>
+            </div>
+          </div>
+
+          <div class="publication-entry">
+            <div class="publication-title">Explainable meta bayesian optimization with human feedback for scientific applications like fusion energy</div>
+            <div>Ricardo Luna Gutierrez*, Sahand Ghorbanpour*, Vineet Gundecha*, <strong>Rahman Ejaz*</strong>, et al.</div>
+            <div class="entry-meta"><em>Climate Change with Machine Learning: workshop at Neural Information Processing Systems (NeurIPS)</em> • 2024</div>
+            <div class="pub-links">
+              <a href="#" target="_blank" rel="noreferrer">paper</a>
+              <a href="#" target="_blank" rel="noreferrer">code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="talks">
+      <div class="container">
+        <h2>Talks</h2>
+        <div class="entry-list">
+          <div class="publication-entry">
+            <div class="publication-title">Optimizing the Performance of Direct-Drive Implosion Experiments Using Transformer Neural Processes and Meta-Look-Ahead</div>
+            <div class="entry-meta">67th Annual Meeting of the APS Division of Plasma Physics • 2025</div>
+            <div>Presenter: <strong>Rahman Ejaz</strong>, et al.</div>
+            </div>
+          </div>
+
+          <div class="publication-entry">
+            <div class="publication-title">Direct-Drive Implosion Performance Optimization Using Gaussian Process Modeling and Reinforcement Learning</div>
+            <div class="entry-meta">12th International Conference on Inertial Fusion Sciences and Applications • 2023</div>
+            <div>Presenter: <strong>Rahman Ejaz</strong>, et al</div>
+          </div>
+
+          <div class="publication-entry">
+            <div class="publication-title">A Deep Learning Approach to Design Inertial Confinement Fusion Implosions</div>
+            <div class="entry-meta">63rd Annual Meeting of the APS Division of Plasma Physics • 2021</div>
+            <div>Presenter: <strong>Rahman Ejaz</strong>, et al.</div>
+            </div>
+          </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="extra">
+      <div class="container">
+        <h2>Extra</h2>
+        <p>In my free time I build trading systems.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 Rahman Ejaz
+    </div>
+  </footer>
 </body>
 </html>
